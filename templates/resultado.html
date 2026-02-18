@@ -15,10 +15,10 @@
 
     <hr>
 
-    <h3>Resultados por Dimensión</h3>
+    <h3>Resultados por Dimensión (%)</h3>
 
-    {% for dimension, puntaje in resultados.items() %}
-        <p><strong>{{ dimension }}:</strong> {{ puntaje }}</p>
+    {% for dimension, porcentaje in dimensiones.items() %}
+        <p><strong>{{ dimension }}:</strong> {{ porcentaje }}%</p>
     {% endfor %}
 
     <br>
@@ -26,4 +26,3 @@
 
 </body>
 </html>
-
