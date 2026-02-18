@@ -2,9 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# ==============================
-# BANCO EIO-SP 48 REACTIVOS
-# ==============================
+# ======================================
+# EIO-SP v9 - 54 Reactivos
+# ======================================
 
 preguntas = [
 
@@ -71,11 +71,19 @@ preguntas = [
     {"id": "p46", "texto": "Disfruto asumir riesgos aunque puedan traer consecuencias.", "dimension": "Riesgo Conductual", "invertida": True},
     {"id": "p47", "texto": "Las reglas estrictas hacen el trabajo más interesante cuando se rompen.", "dimension": "Riesgo Conductual", "invertida": True},
     {"id": "p48", "texto": "A veces es necesario cruzar límites para obtener resultados.", "dimension": "Riesgo Conductual", "invertida": True},
+
+    # CONDUCTA ANTE SUSTANCIAS
+    {"id": "p49", "texto": "Considero inaceptable presentarse al servicio bajo efectos del alcohol.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p50", "texto": "El consumo de sustancias afecta la seguridad operativa.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p51", "texto": "Mantengo hábitos que no comprometen mi desempeño laboral.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p52", "texto": "Consumir alcohol en pequeñas cantidades no afecta el servicio.", "dimension": "Conducta ante Sustancias", "invertida": True},
+    {"id": "p53", "texto": "El consumo recreativo fuera del turno no influye en el trabajo.", "dimension": "Conducta ante Sustancias", "invertida": True},
+    {"id": "p54", "texto": "Mientras cumpla con mis funciones, lo que consuma es asunto personal.", "dimension": "Conducta ante Sustancias", "invertida": True},
 ]
 
 @app.route("/")
 def home():
-    return "EIO-SP Plataforma Activa v8"
+    return "EIO-SP Plataforma Activa v9"
 
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
@@ -103,11 +111,9 @@ def evaluacion():
 
             resultados[dim] += valor
 
-        # IGIO
         maximo_posible = total_preguntas * 5
         igio = round((total_general / maximo_posible) * 100)
 
-        # Evaluación por dimensión
         dimensiones = {}
         dim_critica = False
 
@@ -116,15 +122,13 @@ def evaluacion():
             porcentaje = round((puntaje / max_dim) * 100)
             dimensiones[dimension] = porcentaje
 
-            # Umbral especial ético
-            if dimension in ["Honestidad Operativa", "Conducta ante Sobornos"]:
+            if dimension in ["Honestidad Operativa", "Conducta ante Sobornos", "Conducta ante Sustancias"]:
                 if porcentaje < 60:
                     dim_critica = True
             else:
                 if porcentaje < 45:
                     dim_critica = True
 
-        # Clasificación final
         if dim_critica:
             clasificacion = "No Recomendable (Dimensión Crítica)"
             color = "red"
