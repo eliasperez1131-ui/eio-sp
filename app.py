@@ -20,7 +20,7 @@ preguntas = [
 
 @app.route("/")
 def home():
-    return "EIO-SP Plataforma Activa v6"
+    return "EIO-SP Plataforma Activa v7"
 
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
@@ -33,7 +33,7 @@ def evaluacion():
         for pregunta in preguntas:
             respuesta = int(request.form.get(pregunta["id"], 0))
 
-            # 🔁 Inversión correcta de reactivos de riesgo
+            # 🔁 Inversión correcta
             if pregunta["invertida"]:
                 valor = 6 - respuesta
             else:
@@ -52,8 +52,23 @@ def evaluacion():
         maximo_posible = total_preguntas * 5
         igio = round((total_general / maximo_posible) * 100)
 
-        # 🚦 Clasificación automática
-        if igio >= 80:
+        # 🔎 Normalizar dimensiones a porcentaje
+        dimensiones_normalizadas = {}
+        dim_critica = False
+
+        for dimension, puntaje in resultados.items():
+            max_dim = 5  # porque cada dimensión tiene 1 reactivo
+            porcentaje = round((puntaje / max_dim) * 100)
+            dimensiones_normalizadas[dimension] = porcentaje
+
+            if porcentaje < 45:
+                dim_critica = True
+
+        # 🚦 Clasificación con regla crítica
+        if dim_critica:
+            clasificacion = "No Recomendable (Dimensión Crítica)"
+            color = "red"
+        elif igio >= 80:
             clasificacion = "Recomendable"
             color = "green"
         elif igio >= 60:
@@ -66,6 +81,7 @@ def evaluacion():
         return render_template(
             "resultado.html",
             resultados=resultados,
+            dimensiones=dimensiones_normalizadas,
             igio=igio,
             clasificacion=clasificacion,
             color=color
@@ -76,3 +92,4 @@ def evaluacion():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
