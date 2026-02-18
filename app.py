@@ -2,22 +2,25 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# Reactivos EIO-SP (ejemplo base)
 preguntas = [
     {
         "id": "p1",
         "texto": "Tomar un objeto pequeño del servicio no es algo grave.",
-        "dimension": "Honestidad"
+        "dimension": "Honestidad",
+        "invertida": True
     },
     {
         "id": "p2",
         "texto": "Me irrito fácilmente cuando las cosas no salen como planeé.",
-        "dimension": "Estabilidad"
+        "dimension": "Estabilidad",
+        "invertida": True
     }
 ]
 
 @app.route("/")
 def home():
-    return "EIO-SP Plataforma Activa v5"
+    return "EIO-SP Plataforma Activa v6"
 
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
@@ -28,7 +31,14 @@ def evaluacion():
         total_preguntas = len(preguntas)
 
         for pregunta in preguntas:
-            valor = int(request.form.get(pregunta["id"], 0))
+            respuesta = int(request.form.get(pregunta["id"], 0))
+
+            # 🔁 Inversión correcta de reactivos de riesgo
+            if pregunta["invertida"]:
+                valor = 6 - respuesta
+            else:
+                valor = respuesta
+
             dim = pregunta["dimension"]
 
             total_general += valor
@@ -38,11 +48,11 @@ def evaluacion():
 
             resultados[dim] += valor
 
-        # IGIO normalizado a 100
+        # 📊 IGIO normalizado a 100
         maximo_posible = total_preguntas * 5
         igio = round((total_general / maximo_posible) * 100)
 
-        # Clasificación automática
+        # 🚦 Clasificación automática
         if igio >= 80:
             clasificacion = "Recomendable"
             color = "green"
@@ -62,3 +72,7 @@ def evaluacion():
         )
 
     return render_template("test.html", preguntas=preguntas)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
