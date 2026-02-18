@@ -7,23 +7,16 @@
     <h2>Evaluación EIO-SP</h2>
 
     <form method="POST">
-        <p>1. Tomar un objeto pequeño del servicio no es algo grave.</p>
-        <input type="radio" name="p1" value="1"> 1
-        <input type="radio" name="p1" value="2"> 2
-        <input type="radio" name="p1" value="3"> 3
-        <input type="radio" name="p1" value="4"> 4
-        <input type="radio" name="p1" value="5"> 5
 
-        <br><br>
+        {% for pregunta in preguntas %}
+            <p>{{ loop.index }}. {{ pregunta.texto }}</p>
 
-        <p>2. Me irrito fácilmente cuando las cosas no salen como planeé.</p>
-        <input type="radio" name="p2" value="1"> 1
-        <input type="radio" name="p2" value="2"> 2
-        <input type="radio" name="p2" value="3"> 3
-        <input type="radio" name="p2" value="4"> 4
-        <input type="radio" name="p2" value="5"> 5
+            {% for i in range(1,6) %}
+                <input type="radio" name="{{ pregunta.id }}" value="{{ i }}" required> {{ i }}
+            {% endfor %}
 
-        <br><br>
+            <br><br>
+        {% endfor %}
 
         <button type="submit">Enviar</button>
     </form>

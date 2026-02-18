@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado EIO-SP</title>
+</head>
+<body>
+    <h2>Resultados por Dimensión</h2>
+
+    {% for dimension, puntaje in resultados.items() %}
+        <p><strong>{{ dimension }}:</strong> {{ puntaje }}</p>
+    {% endfor %}
+
+    <br>
+    <a href="/evaluacion">Nueva evaluación</a>
+</body>
+</html>
