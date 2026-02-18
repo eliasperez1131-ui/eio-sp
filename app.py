@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "EIO-SP Plataforma Activa"
+    return "EIO-SP Plataforma Activa v3"
+
 
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
