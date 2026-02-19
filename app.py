@@ -39,9 +39,10 @@ class Empresa(db.Model):
 # CREAR TABLAS AUTOMÁTICAMENTE
 # =============================
 
-with app.app_context():
+@app.before_request
+def create_tables():
     db.create_all()
-    print("TABLAS CREADAS O VERIFICADAS")
+
 # ==========================================
 # EIO-SP v15
 # 90 Reactivos (Construcción en bloques)
