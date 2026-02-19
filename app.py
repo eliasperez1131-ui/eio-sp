@@ -59,6 +59,16 @@ preguntas = [
     {"id": "p28", "texto": "Algunos comentarios sobre apariencia pueden tomarse como broma sin mayor problema.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
     {"id": "p29", "texto": "Las insinuaciones no siempre deben considerarse una falta formal.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
     {"id": "p30", "texto": "Si existe aparente consentimiento, no es necesario involucrar a la empresa.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
+    # ======================================
+    # 6️⃣ SEGURIDAD LABORAL (50%)
+    # ======================================
+
+    {"id": "p31", "texto": "Utilizo el equipo de protección personal aunque no haya supervisión directa.", "dimension": "Seguridad Laboral", "invertida": False},
+    {"id": "p32", "texto": "Reporto condiciones inseguras antes de que se conviertan en accidentes.", "dimension": "Seguridad Laboral", "invertida": False},
+    {"id": "p33", "texto": "Cumplir protocolos de seguridad previene riesgos innecesarios.", "dimension": "Seguridad Laboral", "invertida": False},
+    {"id": "p34", "texto": "Si el riesgo parece bajo, no siempre es necesario seguir todos los protocolos.", "dimension": "Seguridad Laboral", "invertida": True},
+    {"id": "p35", "texto": "El equipo de protección a veces estorba y puede omitirse.", "dimension": "Seguridad Laboral", "invertida": True},
+    {"id": "p36", "texto": "Los accidentes menores no requieren reporte formal.", "dimension": "Seguridad Laboral", "invertida": True},
 
 ]
 
