@@ -5,30 +5,34 @@ import random
 
 app = Flask(__name__)
 
-pg_host = os.getenv("PGHOST")
-pg_port = os.getenv("PGPORT")
-pg_db = os.getenv("PGDATABASE")
-pg_user = os.getenv("PGUSER")
-pg_password = os.getenv("PGPASSWORD")
+# =============================
+# CONEXIÓN POSTGRESQL RAILWAY
+# =============================
 
-if not all([pg_host, pg_port, pg_db, pg_user, pg_password]):
-    raise RuntimeError("Variables de PostgreSQL no configuradas correctamente.")
+database_url = os.getenv("DATABASE_URL")
 
-database_uri = f"postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_db}"
+if not database_url:
+    raise RuntimeError("DATABASE_URL no está configurada en Railway.")
 
-app.config["SQLALCHEMY_DATABASE_URI"] = database_uri
+# Ajuste por compatibilidad
+if database_url.startswith("postgres://"):
+    database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 db = SQLAlchemy(app)
+
+# =============================
+# MODELO EMPRESA
+# =============================
 
 class Empresa(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(150), nullable=False)
     usuario = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
+
 
 # ==========================================
 # EIO-SP v15
