@@ -41,7 +41,7 @@ class Empresa(db.Model):
 
 with app.app_context():
     db.create_all()
-
+    print("TABLAS CREADAS O VERIFICADAS")
 # ==========================================
 # EIO-SP v15
 # 90 Reactivos (Construcción en bloques)
