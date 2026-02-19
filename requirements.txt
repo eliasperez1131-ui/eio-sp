@@ -1,5 +1,5 @@
 flask
 gunicorn
 reportlab
-psycopg2-binary
 flask_sqlalchemy
+psycopg2-binary
