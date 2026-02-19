@@ -139,6 +139,16 @@ preguntas = [
     {"id": "p76", "texto": "Prefiero trabajar solo y evitar involucrarme con otros.", "dimension": "Trabajo en Equipo", "invertida": True},
     {"id": "p77", "texto": "No es mi responsabilidad apoyar a compañeros con problemas.", "dimension": "Trabajo en Equipo", "invertida": True},
     {"id": "p78", "texto": "Si un compañero comete un error, no es asunto mío.", "dimension": "Trabajo en Equipo", "invertida": True},
+    # ======================================
+    # 1️⃣4️⃣ RIESGO CONDUCTUAL (45%)
+    # ======================================
+
+    {"id": "p79", "texto": "Evalúo las consecuencias antes de tomar decisiones importantes.", "dimension": "Riesgo Conductual", "invertida": False},
+    {"id": "p80", "texto": "Evito conductas que puedan comprometer mi empleo.", "dimension": "Riesgo Conductual", "invertida": False},
+    {"id": "p81", "texto": "Considero los posibles impactos negativos antes de actuar.", "dimension": "Riesgo Conductual", "invertida": False},
+    {"id": "p82", "texto": "A veces asumo riesgos innecesarios sin medir consecuencias.", "dimension": "Riesgo Conductual", "invertida": True},
+    {"id": "p83", "texto": "No siempre analizo las posibles repercusiones de mis actos.", "dimension": "Riesgo Conductual", "invertida": True},
+    {"id": "p84", "texto": "Tomar decisiones impulsivas puede ser beneficioso en ciertos casos.", "dimension": "Riesgo Conductual", "invertida": True},
 
 ]
 
