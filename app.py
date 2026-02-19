@@ -1,7 +1,20 @@
 from flask import Flask, render_template, request
+import os
+from flask_sqlalchemy import SQLAlchemy
 import random
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Empresa(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(150), nullable=False)
+    usuario = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
 # ==========================================
 # EIO-SP v15
@@ -341,6 +354,9 @@ def descargar_pdf():
         download_name="Resultado_EIO_SP.pdf",
         mimetype="application/pdf"
     )
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == "__main__":
     app.run(debug=True)
