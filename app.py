@@ -29,6 +29,16 @@ preguntas = [
     {"id": "p10", "texto": "Si el beneficio es considerable, podría analizar la situación.", "dimension": "Conducta ante Sobornos", "invertida": True},
     {"id": "p11", "texto": "Aceptar pequeños regalos no representa un problema real.", "dimension": "Conducta ante Sobornos", "invertida": True},
     {"id": "p12", "texto": "Algunas excepciones pueden justificarse si no perjudican directamente.", "dimension": "Conducta ante Sobornos", "invertida": True},
+    # ======================================
+    # 3️⃣ CONDUCTA ANTE SUSTANCIAS (60%)
+    # ======================================
+
+    {"id": "p13", "texto": "Es inaceptable presentarse al servicio bajo efectos de alcohol.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p14", "texto": "El consumo de sustancias afecta la seguridad operativa.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p15", "texto": "Mantengo hábitos que no comprometen mi desempeño laboral.", "dimension": "Conducta ante Sustancias", "invertida": False},
+    {"id": "p16", "texto": "Consumir en pequeñas cantidades no afecta el servicio.", "dimension": "Conducta ante Sustancias", "invertida": True},
+    {"id": "p17", "texto": "Lo que haga fuera del turno no influye en mi rendimiento.", "dimension": "Conducta ante Sustancias", "invertida": True},
+    {"id": "p18", "texto": "Mientras cumpla con mis funciones, el consumo no es relevante.", "dimension": "Conducta ante Sustancias", "invertida": True},
 
 ]
 
