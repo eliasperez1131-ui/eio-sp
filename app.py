@@ -109,6 +109,16 @@ preguntas = [
     {"id": "p58", "texto": "Cuando me enojo, actúo sin pensar en las consecuencias.", "dimension": "Control de Impulsos", "invertida": True},
     {"id": "p59", "texto": "Me cuesta controlar mis reacciones ante faltas de respeto.", "dimension": "Control de Impulsos", "invertida": True},
     {"id": "p60", "texto": "Si alguien me provoca, respondo inmediatamente.", "dimension": "Control de Impulsos", "invertida": True},
+    # ======================================
+    # 1️⃣1️⃣ TOLERANCIA A LA FRUSTRACIÓN (45%)
+    # ======================================
+
+    {"id": "p61", "texto": "Continúo trabajando aunque las cosas no salgan como planeé.", "dimension": "Tolerancia a la Frustración", "invertida": False},
+    {"id": "p62", "texto": "Me adapto cuando cambian las instrucciones de forma inesperada.", "dimension": "Tolerancia a la Frustración", "invertida": False},
+    {"id": "p63", "texto": "Mantengo motivación incluso ante dificultades operativas.", "dimension": "Tolerancia a la Frustración", "invertida": False},
+    {"id": "p64", "texto": "Me desmotivo fácilmente cuando algo falla.", "dimension": "Tolerancia a la Frustración", "invertida": True},
+    {"id": "p65", "texto": "Cuando cometo errores, me cuesta recuperarme.", "dimension": "Tolerancia a la Frustración", "invertida": True},
+    {"id": "p66", "texto": "Si el turno es complicado, pierdo interés en el servicio.", "dimension": "Tolerancia a la Frustración", "invertida": True},
 
 ]
 
