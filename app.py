@@ -227,6 +227,7 @@ def evaluacion():
             else:
                 umbral = 45
 
+
             if porcentaje < umbral:
                 dim_critica = True
 
