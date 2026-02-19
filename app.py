@@ -79,6 +79,16 @@ preguntas = [
     {"id": "p40", "texto": "En situaciones tensas es mejor actuar físicamente sin evaluar demasiado.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
     {"id": "p41", "texto": "Mostrar autoridad física evita futuros conflictos.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
     {"id": "p42", "texto": "Una respuesta contundente siempre es la mejor forma de control.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
+    # ======================================
+    # 8️⃣ RESPONSABILIDAD PROACTIVA (50%)
+    # ======================================
+
+    {"id": "p43", "texto": "Actúo cuando detecto una situación irregular aunque no sea mi turno directo.", "dimension": "Responsabilidad Proactiva", "invertida": False},
+    {"id": "p44", "texto": "Prefiero intervenir preventivamente antes de que un problema crezca.", "dimension": "Responsabilidad Proactiva", "invertida": False},
+    {"id": "p45", "texto": "Informo anomalías aunque no me afecten personalmente.", "dimension": "Responsabilidad Proactiva", "invertida": False},
+    {"id": "p46", "texto": "Si un problema no me corresponde directamente, no es mi responsabilidad intervenir.", "dimension": "Responsabilidad Proactiva", "invertida": True},
+    {"id": "p47", "texto": "Mientras cumpla mis funciones mínimas, lo demás no es asunto mío.", "dimension": "Responsabilidad Proactiva", "invertida": True},
+    {"id": "p48", "texto": "No vale la pena involucrarse en situaciones que podrían complicarse.", "dimension": "Responsabilidad Proactiva", "invertida": True},
 
 ]
 
