@@ -1,50 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>EIO-SP Evaluación</title>
+    <meta charset="UTF-8">
+    <title>EIO-SP Evaluación Operativa</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #0b3d91;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .subheader {
+            text-align: center;
+            padding: 10px;
+            background-color: #e3eaf5;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .pregunta {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .opciones {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .opciones label {
+            flex: 1;
+        }
+
+        button {
+            background-color: #f57c00;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #e65100;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Evaluación EIO-SP</h2>
 
-    <form method="POST">
+<div class="header">
+    EIO-SP Evaluación de Integridad Operativa en Seguridad Privada
+</div>
 
-        {% for pregunta in preguntas %}
-            <p>{{ loop.index }}. {{ pregunta.texto }}</p>
+<div class="subheader">
+    Instrucciones: Lea cada afirmación y seleccione la opción que mejor describa su grado de acuerdo.
+</div>
 
-            <div class="opciones">
+<div class="container">
 
-    <label>
-        <input type="radio" name="{{ pregunta.id }}" value="1" required>
-        1 - Totalmente en desacuerdo
-    </label><br>
+<form method="POST">
 
-    <label>
-        <input type="radio" name="{{ pregunta.id }}" value="2">
-        2 - En desacuerdo
-    </label><br>
+{% for pregunta in preguntas %}
 
-    <label>
-        <input type="radio" name="{{ pregunta.id }}" value="3">
-        3 - Ni de acuerdo ni en desacuerdo
-    </label><br>
+<div class="card">
 
-    <label>
-        <input type="radio" name="{{ pregunta.id }}" value="4">
-        4 - De acuerdo
-    </label><br>
+    <div class="pregunta">
+        {{ loop.index }}. {{ pregunta.texto }}
+    </div>
 
-    <label>
-        <input type="radio" name="{{ pregunta.id }}" value="5">
-        5 - Totalmente de acuerdo
-    </label>
+    <div class="opciones">
+
+        <label>
+            <input type="radio" name="{{ pregunta.id }}" value="1" required>
+            <br>1<br>Totalmente en desacuerdo
+        </label>
+
+        <label>
+            <input type="radio" name="{{ pregunta.id }}" value="2">
+            <br>2<br>En desacuerdo
+        </label>
+
+        <label>
+            <input type="radio" name="{{ pregunta.id }}" value="3">
+            <br>3<br>Ni de acuerdo ni en desacuerdo
+        </label>
+
+        <label>
+            <input type="radio" name="{{ pregunta.id }}" value="4">
+            <br>4<br>De acuerdo
+        </label>
+
+        <label>
+            <input type="radio" name="{{ pregunta.id }}" value="5">
+            <br>5<br>Totalmente de acuerdo
+        </label>
+
+    </div>
 
 </div>
 
+{% endfor %}
 
-            <br><br>
-        {% endfor %}
+<button type="submit">
+    Enviar Evaluación
+</button>
 
-        <button type="submit">Enviar</button>
-    </form>
+</form>
+
+</div>
+
 </body>
 </html>
