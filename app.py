@@ -171,6 +171,11 @@ def evaluacion():
 
     if request.method == "POST":
 
+        # VALIDACIÓN: Todas las preguntas deben estar respondidas
+        for pregunta in preguntas:
+            if pregunta["id"] not in request.form:
+                return "Error: Debe responder todos los reactivos antes de enviar la evaluación."
+
         resultados = {}
         total_general = 0
 
