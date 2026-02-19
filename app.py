@@ -49,6 +49,16 @@ preguntas = [
     {"id": "p22", "texto": "En algunos casos, la agresividad es necesaria para mantener control.", "dimension": "Prevención de Violencia General", "invertida": True},
     {"id": "p23", "texto": "Si alguien provoca, es normal responder de forma contundente.", "dimension": "Prevención de Violencia General", "invertida": True},
     {"id": "p24", "texto": "Algunas confrontaciones físicas pueden justificarse fácilmente.", "dimension": "Prevención de Violencia General", "invertida": True},
+    # ======================================
+    # 5️⃣ VIOLENCIA SEXUAL Y CONDUCTA INAPROPIADA (60%)
+    # ======================================
+
+    {"id": "p25", "texto": "Mantengo conducta profesional evitando comentarios o insinuaciones inapropiadas.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": False},
+    {"id": "p26", "texto": "Respeto los límites personales y profesionales de los demás.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": False},
+    {"id": "p27", "texto": "Reportaría inmediatamente cualquier conducta de acoso sexual observada.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": False},
+    {"id": "p28", "texto": "Algunos comentarios sobre apariencia pueden tomarse como broma sin mayor problema.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
+    {"id": "p29", "texto": "Las insinuaciones no siempre deben considerarse una falta formal.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
+    {"id": "p30", "texto": "Si existe aparente consentimiento, no es necesario involucrar a la empresa.", "dimension": "Violencia Sexual y Conducta Inapropiada", "invertida": True},
 
 ]
 
