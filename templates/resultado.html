@@ -19,7 +19,7 @@ body {
     color: white;
     padding: 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -40,7 +40,7 @@ body {
 .dictamen-box {
     padding: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     border-radius: 8px;
     color: white;
@@ -84,7 +84,7 @@ Resultado Evaluación EIO-SP
 
 <div class="container">
 
-<div class="card">
+<div class="card" style="text-align:center;">
 <strong>Índice Global de Integridad Operativa (IGIO):</strong> {{ igio }}%
 </div>
 
@@ -136,8 +136,10 @@ DICTAMEN FINAL: NO APTO
 </div>
 
 <div class="card">
-<h3>Resumen Ejecutivo</h3>
-<p>{{ resumen }}</p>
+<h3 style="text-align:center;">Resumen Ejecutivo</h3>
+<p style="text-align: justify; line-height: 1.6;">
+{{ resumen }}
+</p>
 </div>
 
 <div class="card" style="text-align:center;">
