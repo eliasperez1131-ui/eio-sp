@@ -149,6 +149,16 @@ preguntas = [
     {"id": "p82", "texto": "A veces asumo riesgos innecesarios sin medir consecuencias.", "dimension": "Riesgo Conductual", "invertida": True},
     {"id": "p83", "texto": "No siempre analizo las posibles repercusiones de mis actos.", "dimension": "Riesgo Conductual", "invertida": True},
     {"id": "p84", "texto": "Tomar decisiones impulsivas puede ser beneficioso en ciertos casos.", "dimension": "Riesgo Conductual", "invertida": True},
+    # ======================================
+    # 1️⃣5️⃣ SEGURIDAD DE LA INFORMACIÓN (45%)
+    # ======================================
+
+    {"id": "p85", "texto": "Protejo la información confidencial a la que tengo acceso.", "dimension": "Seguridad de la Información", "invertida": False},
+    {"id": "p86", "texto": "Evito compartir datos sensibles sin autorización.", "dimension": "Seguridad de la Información", "invertida": False},
+    {"id": "p87", "texto": "Respeto los protocolos de manejo de bases de datos.", "dimension": "Seguridad de la Información", "invertida": False},
+    {"id": "p88", "texto": "Compartir información interna no siempre representa un riesgo.", "dimension": "Seguridad de la Información", "invertida": True},
+    {"id": "p89", "texto": "Si la información parece inofensiva, puede difundirse sin problema.", "dimension": "Seguridad de la Información", "invertida": True},
+    {"id": "p90", "texto": "No es grave divulgar ciertos datos si no se usan con mala intención.", "dimension": "Seguridad de la Información", "invertida": True},
 
 ]
 
