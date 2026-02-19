@@ -6,7 +6,7 @@ import random
 app = Flask(__name__)
 
 # =============================
-# CONEXIÓN POSTGRESQL RAILWAY
+# CONFIGURACIÓN POSTGRESQL RAILWAY
 # =============================
 
 database_url = os.getenv("DATABASE_URL")
@@ -14,28 +14,33 @@ database_url = os.getenv("DATABASE_URL")
 if not database_url:
     raise RuntimeError("DATABASE_URL no está configurada en Railway.")
 
+# Railway a veces usa postgres:// y SQLAlchemy requiere postgresql://
 if database_url.startswith("postgres://"):
     database_url = database_url.replace("postgres://", "postgresql://", 1)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
-with app.app_context():
-    db.create_all()
-
 
 # =============================
 # MODELO EMPRESA
 # =============================
 
 class Empresa(db.Model):
+    __tablename__ = "empresas"
+
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(150), nullable=False)
     usuario = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
 
+# =============================
+# CREAR TABLAS AUTOMÁTICAMENTE
+# =============================
+
+with app.app_context():
+    db.create_all()
 
 # ==========================================
 # EIO-SP v15
