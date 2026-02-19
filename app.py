@@ -19,6 +19,16 @@ preguntas = [
     {"id": "p4", "texto": "Si nadie se da cuenta, algunas faltas pueden justificarse.", "dimension": "Honestidad Operativa", "invertida": True},
     {"id": "p5", "texto": "Modificar un reporte puede ser aceptable en ciertas circunstancias.", "dimension": "Honestidad Operativa", "invertida": True},
     {"id": "p6", "texto": "Pequeñas omisiones no afectan realmente a la empresa.", "dimension": "Honestidad Operativa", "invertida": True},
+    # ======================================
+    # 2️⃣ CONDUCTA ANTE SOBORNOS (60%)
+    # ======================================
+
+    {"id": "p7", "texto": "Rechazaría cualquier incentivo económico indebido.", "dimension": "Conducta ante Sobornos", "invertida": False},
+    {"id": "p8", "texto": "Reportaría inmediatamente un intento de soborno.", "dimension": "Conducta ante Sobornos", "invertida": False},
+    {"id": "p9", "texto": "Mi desempeño no depende de beneficios externos.", "dimension": "Conducta ante Sobornos", "invertida": False},
+    {"id": "p10", "texto": "Si el beneficio es considerable, podría analizar la situación.", "dimension": "Conducta ante Sobornos", "invertida": True},
+    {"id": "p11", "texto": "Aceptar pequeños regalos no representa un problema real.", "dimension": "Conducta ante Sobornos", "invertida": True},
+    {"id": "p12", "texto": "Algunas excepciones pueden justificarse si no perjudican directamente.", "dimension": "Conducta ante Sobornos", "invertida": True},
 
 ]
 
