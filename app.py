@@ -166,13 +166,12 @@ preguntas = [
 @app.route("/")
 def home():
     return "EIO-SP Plataforma Activa v15 - En Construcción"
-
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
 
     if request.method == "POST":
 
-        # VALIDACIÓN: Todas las preguntas deben estar respondidas
+        # VALIDACIÓN
         for pregunta in preguntas:
             if pregunta["id"] not in request.form:
                 return "Error: Debe responder todos los reactivos antes de enviar la evaluación."
@@ -205,7 +204,8 @@ def evaluacion():
 
         for dimension, puntaje in resultados.items():
 
-            porcentaje = round((puntaje / 30) * 100)
+            # Ajusta el 6 si cada dimensión tiene 6 reactivos
+            porcentaje = round((puntaje / (6 * 5)) * 100)
             dimensiones_resultado[dimension] = porcentaje
 
             if dimension in [
@@ -227,36 +227,77 @@ def evaluacion():
             else:
                 umbral = 45
 
-
             if porcentaje < umbral:
                 dim_critica = True
 
         if dim_critica:
-            clasificacion = "No Recomendable (Dimensión Crítica)"
-            color = "red"
+            clasificacion = "No Recomendable"
             dictamen = "NO APTO"
         elif igio >= 80:
             clasificacion = "Recomendable"
-            color = "green"
             dictamen = "APTO"
         elif igio >= 65:
-            clasificacion = "Riesgo Medio"
-            color = "orange"
-            dictamen = "APTO CON RESERVA"
+            clasificacion = "Aceptable"
+            dictamen = "APTO"
         else:
             clasificacion = "No Recomendable"
-            color = "red"
             dictamen = "NO APTO"
+
+        # ===============================
+        # GENERACIÓN DE RESUMEN AUTOMÁTICO
+        # ===============================
+
+        fortalezas = []
+        medias = []
+        debiles = []
+
+        for dimension, porcentaje in dimensiones_resultado.items():
+            if porcentaje >= 75:
+                fortalezas.append(dimension)
+            elif porcentaje >= 50:
+                medias.append(dimension)
+            else:
+                debiles.append(dimension)
+
+        resumen_partes = []
+
+        if fortalezas:
+            resumen_partes.append(
+                "El elemento presenta fortalezas claras en " +
+                ", ".join(fortalezas) +
+                ", lo que indica consistencia en su desempeño operativo."
+            )
+
+        if medias:
+            resumen_partes.append(
+                "Se identifican áreas que pueden fortalecerse mediante supervisión y capacitación en " +
+                ", ".join(medias) + "."
+            )
+
+        if debiles:
+            resumen_partes.append(
+                "Se detectan debilidades significativas en " +
+                ", ".join(debiles) +
+                ", que requieren intervención o análisis complementario."
+            )
+
+        if not resumen_partes:
+            resumen_partes.append(
+                "El perfil evaluado refleja estabilidad conductual y alineación general con los estándares de integridad operativa."
+            )
+
+        resumen = " ".join(resumen_partes)
 
         return render_template(
             "resultado.html",
             dimensiones=dimensiones_resultado,
             igio=igio,
-            clasificacion=clasificacion,
-            color=color,
-            dictamen=dictamen
+            dictamen=dictamen,
+            resumen=resumen
         )
-# 🔀 ALEATORIZACIÓN SEGURA
+
+    # ALEATORIZACIÓN
+    import random
     preguntas_aleatorias = preguntas.copy()
     random.shuffle(preguntas_aleatorias)
 
