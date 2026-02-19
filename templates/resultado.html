@@ -40,7 +40,7 @@ body {
 .dictamen-box {
     padding: 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     border-radius: 8px;
     color: white;
@@ -57,6 +57,20 @@ body {
 .section-title {
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+button {
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #082c66;
 }
 
 </style>
@@ -121,13 +135,24 @@ DICTAMEN FINAL: NO APTO
 </ul>
 </div>
 
+<div class="card">
+<h3>Resumen Ejecutivo</h3>
+<p>{{ resumen }}</p>
+</div>
+
+<div class="card" style="text-align:center;">
+<a href="/descargar_pdf?igio={{ igio }}&dictamen={{ dictamen }}&resumen={{ resumen }}">
+    <button>Descargar Resultado en PDF</button>
+</a>
+</div>
+
 </div>
 
 <script>
 
 const ctx = document.getElementById('radarChart').getContext('2d');
 
-const radarChart = new Chart(ctx, {
+new Chart(ctx, {
     type: 'radar',
     data: {
         labels: {{ dimensiones.keys() | list | tojson }},
