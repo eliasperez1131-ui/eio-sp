@@ -1,28 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Resultado EIO-SP</title>
+<meta charset="UTF-8">
+<title>Resultado EIO-SP</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8;
+    margin: 0;
+}
+
+.header {
+    background-color: #0b3d91;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.fortaleza { color: green; font-weight: bold; }
+.adecuado { color: #0b3d91; font-weight: bold; }
+.atencion { color: orange; font-weight: bold; }
+.critico { color: red; font-weight: bold; }
+
+.dictamen {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
 </head>
+
 <body>
 
-    <h2>Resultado EIO-SP</h2>
+<div class="header">
+Resultado Evaluación EIO-SP
+</div>
 
-    <h3>IGIO: {{ igio }}%</h3>
+<div class="container">
 
-    <h3 style="color: {{ color }};">
-        Clasificación: {{ clasificacion }}
-    </h3>
+<div class="card">
+<strong>Índice Global de Integridad Operativa (IGIO):</strong> {{ igio }}%
+</div>
 
-    <hr>
+<div class="card">
+<h3>Evaluación por Dimensiones</h3>
 
-    <h3>Resultados por Dimensión (%)</h3>
+{% for dimension, porcentaje in dimensiones.items() %}
 
-    {% for dimension, porcentaje in dimensiones.items() %}
-        <p><strong>{{ dimension }}:</strong> {{ porcentaje }}%</p>
-    {% endfor %}
+<p>
+<strong>{{ dimension }}:</strong> {{ porcentaje }}%
 
-    <br>
-    <a href="/evaluacion">Nueva evaluación</a>
+{% if porcentaje >= 80 %}
+<span class="fortaleza"> – Fortaleza Operativa</span>
+{% elif porcentaje >= 60 %}
+<span class="adecuado"> – Nivel Adecuado</span>
+{% elif porcentaje >= 45 %}
+<span class="atencion"> – Zona de Atención</span>
+{% else %}
+<span class="critico"> – Dimensión Crítica</span>
+{% endif %}
+
+</p>
+
+{% endfor %}
+
+</div>
+
+<div class="card">
+
+<h3>Resumen Ejecutivo</h3>
+
+{% if igio >= 80 %}
+<p>El evaluado presenta un perfil sólido de integridad operativa, con indicadores consistentes en responsabilidad, ética y control conductual.</p>
+
+{% elif igio >= 65 %}
+<p>El evaluado presenta un perfil aceptable con áreas específicas que requieren seguimiento o supervisión inicial.</p>
+
+{% else %}
+<p>El evaluado presenta indicadores de riesgo que pueden comprometer la seguridad operativa y la estabilidad organizacional.</p>
+{% endif %}
+
+</div>
+
+<div class="dictamen">
+DICTAMEN FINAL: {{ dictamen }}
+</div>
+
+</div>
 
 </body>
 </html>
