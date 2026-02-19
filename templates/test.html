@@ -1,92 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>EIO-SP Evaluación Operativa</title>
+<meta charset="UTF-8">
+<title>EIO-SP Evaluación Operativa</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f4f8;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        .header {
-            background-color: #0b3d91;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8;
+    margin: 0;
+    padding: 0;
+}
 
-        .subheader {
-            text-align: center;
-            padding: 10px;
-            background-color: #e3eaf5;
-            font-size: 14px;
-        }
+.header {
+    background-color: #0b3d91;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
 
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 30px auto;
-        }
+.subheader {
+    text-align: center;
+    padding: 10px;
+    background-color: #e3eaf5;
+    font-size: 14px;
+}
 
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
 
-        .pregunta {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+.progress-container {
+    width: 100%;
+    background-color: #dcdcdc;
+    border-radius: 8px;
+    height: 20px;
+}
 
-        .opciones {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            text-align: center;
-        }
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #0b3d91;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
 
-        .opciones label {
-            flex: 1;
-        }
+.progress-text {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
 
-        button {
-            background-color: #f57c00;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 100%;
-        }
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-        button:hover {
-            background-color: #e65100;
-        }
-    </style>
+.pregunta {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    text-align: center;
+}
+
+.opciones label {
+    flex: 1;
+}
+
+button {
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #e65100;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="header">
-    EIO-SP Evaluación de Integridad Operativa en Seguridad Privada
+EIO-SP Evaluación de Integridad Operativa en Seguridad Privada
 </div>
 
 <div class="subheader">
-    Instrucciones: Lea cada afirmación y seleccione la opción que mejor describa su grado de acuerdo.
+Instrucciones: Lea cada afirmación y seleccione la opción que mejor describa su grado de acuerdo.
 </div>
 
 <div class="container">
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+<div class="progress-text" id="progressText">
+    0% completado
+</div>
 
 <form method="POST">
 
@@ -94,50 +125,76 @@
 
 <div class="card">
 
-    <div class="pregunta">
-        {{ loop.index }}. {{ pregunta.texto }}
-    </div>
+<div class="pregunta">
+{{ loop.index }}. {{ pregunta.texto }}
+</div>
 
-    <div class="opciones">
+<div class="opciones">
 
-        <label>
-            <input type="radio" name="{{ pregunta.id }}" value="1" required>
-            <br>1<br>Totalmente en desacuerdo
-        </label>
+<label>
+<input type="radio" name="{{ pregunta.id }}" value="1" required>
+<br>1<br>Totalmente en desacuerdo
+</label>
 
-        <label>
-            <input type="radio" name="{{ pregunta.id }}" value="2">
-            <br>2<br>En desacuerdo
-        </label>
+<label>
+<input type="radio" name="{{ pregunta.id }}" value="2">
+<br>2<br>En desacuerdo
+</label>
 
-        <label>
-            <input type="radio" name="{{ pregunta.id }}" value="3">
-            <br>3<br>Ni de acuerdo ni en desacuerdo
-        </label>
+<label>
+<input type="radio" name="{{ pregunta.id }}" value="3">
+<br>3<br>Ni de acuerdo ni en desacuerdo
+</label>
 
-        <label>
-            <input type="radio" name="{{ pregunta.id }}" value="4">
-            <br>4<br>De acuerdo
-        </label>
+<label>
+<input type="radio" name="{{ pregunta.id }}" value="4">
+<br>4<br>De acuerdo
+</label>
 
-        <label>
-            <input type="radio" name="{{ pregunta.id }}" value="5">
-            <br>5<br>Totalmente de acuerdo
-        </label>
+<label>
+<input type="radio" name="{{ pregunta.id }}" value="5">
+<br>5<br>Totalmente de acuerdo
+</label>
 
-    </div>
+</div>
 
 </div>
 
 {% endfor %}
 
 <button type="submit">
-    Enviar Evaluación
+Enviar Evaluación
 </button>
 
 </form>
 
 </div>
+
+<script>
+
+const radios = document.querySelectorAll('input[type="radio"]');
+const totalPreguntas = {{ preguntas|length }};
+const progressBar = document.getElementById('progressBar');
+const progressText = document.getElementById('progressText');
+
+function actualizarProgreso() {
+    const respondidas = new Set();
+    radios.forEach(radio => {
+        if (radio.checked) {
+            respondidas.add(radio.name);
+        }
+    });
+
+    const porcentaje = Math.round((respondidas.size / totalPreguntas) * 100);
+    progressBar.style.width = porcentaje + "%";
+    progressText.innerText = porcentaje + "% completado";
+}
+
+radios.forEach(radio => {
+    radio.addEventListener("change", actualizarProgreso);
+});
+
+</script>
 
 </body>
 </html>
