@@ -302,6 +302,45 @@ def evaluacion():
     random.shuffle(preguntas_aleatorias)
 
     return render_template("test.html", preguntas=preguntas_aleatorias)
+from flask import send_file
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+import io
+
+@app.route("/descargar_pdf")
+def descargar_pdf():
+
+    igio = request.args.get("igio", "")
+    dictamen = request.args.get("dictamen", "")
+    resumen = request.args.get("resumen", "")
+
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter)
+    elements = []
+
+    styles = getSampleStyleSheet()
+
+    elements.append(Paragraph("EIO-SP Evaluación de Integridad Operativa", styles["Heading1"]))
+    elements.append(Spacer(1, 0.3 * inch))
+
+    elements.append(Paragraph(f"Índice Global (IGIO): {igio}%", styles["Normal"]))
+    elements.append(Paragraph(f"Dictamen Final: {dictamen}", styles["Normal"]))
+    elements.append(Spacer(1, 0.3 * inch))
+
+    elements.append(Paragraph("Resumen Ejecutivo:", styles["Heading2"]))
+    elements.append(Paragraph(resumen, styles["Normal"]))
+
+    doc.build(elements)
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name="Resultado_EIO_SP.pdf",
+        mimetype="application/pdf"
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)
