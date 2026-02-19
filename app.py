@@ -89,6 +89,16 @@ preguntas = [
     {"id": "p46", "texto": "Si un problema no me corresponde directamente, no es mi responsabilidad intervenir.", "dimension": "Responsabilidad Proactiva", "invertida": True},
     {"id": "p47", "texto": "Mientras cumpla mis funciones mínimas, lo demás no es asunto mío.", "dimension": "Responsabilidad Proactiva", "invertida": True},
     {"id": "p48", "texto": "No vale la pena involucrarse en situaciones que podrían complicarse.", "dimension": "Responsabilidad Proactiva", "invertida": True},
+    # ======================================
+    # 9️⃣ APEGO A NORMAS (45%)
+    # ======================================
+
+    {"id": "p49", "texto": "Sigo los procedimientos establecidos aunque me parezcan estrictos.", "dimension": "Apego a Normas", "invertida": False},
+    {"id": "p50", "texto": "Respeto la cadena de mando y los lineamientos internos.", "dimension": "Apego a Normas", "invertida": False},
+    {"id": "p51", "texto": "Cumplir protocolos es parte fundamental del servicio.", "dimension": "Apego a Normas", "invertida": False},
+    {"id": "p52", "texto": "Algunas reglas pueden ignorarse si la situación lo amerita.", "dimension": "Apego a Normas", "invertida": True},
+    {"id": "p53", "texto": "Si tengo experiencia, no siempre necesito seguir todos los procedimientos.", "dimension": "Apego a Normas", "invertida": True},
+    {"id": "p54", "texto": "Las normas pueden adaptarse según criterio personal.", "dimension": "Apego a Normas", "invertida": True},
 
 ]
 
