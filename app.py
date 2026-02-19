@@ -99,6 +99,16 @@ preguntas = [
     {"id": "p52", "texto": "Algunas reglas pueden ignorarse si la situación lo amerita.", "dimension": "Apego a Normas", "invertida": True},
     {"id": "p53", "texto": "Si tengo experiencia, no siempre necesito seguir todos los procedimientos.", "dimension": "Apego a Normas", "invertida": True},
     {"id": "p54", "texto": "Las normas pueden adaptarse según criterio personal.", "dimension": "Apego a Normas", "invertida": True},
+    # ======================================
+    # 🔟 CONTROL DE IMPULSOS (45%)
+    # ======================================
+
+    {"id": "p55", "texto": "Mantengo la calma incluso cuando me provocan.", "dimension": "Control de Impulsos", "invertida": False},
+    {"id": "p56", "texto": "Pienso antes de actuar en situaciones de tensión.", "dimension": "Control de Impulsos", "invertida": False},
+    {"id": "p57", "texto": "Evito reaccionar de manera impulsiva ante conflictos.", "dimension": "Control de Impulsos", "invertida": False},
+    {"id": "p58", "texto": "Cuando me enojo, actúo sin pensar en las consecuencias.", "dimension": "Control de Impulsos", "invertida": True},
+    {"id": "p59", "texto": "Me cuesta controlar mis reacciones ante faltas de respeto.", "dimension": "Control de Impulsos", "invertida": True},
+    {"id": "p60", "texto": "Si alguien me provoca, respondo inmediatamente.", "dimension": "Control de Impulsos", "invertida": True},
 
 ]
 
