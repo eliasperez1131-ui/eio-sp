@@ -39,6 +39,16 @@ preguntas = [
     {"id": "p16", "texto": "Consumir en pequeñas cantidades no afecta el servicio.", "dimension": "Conducta ante Sustancias", "invertida": True},
     {"id": "p17", "texto": "Lo que haga fuera del turno no influye en mi rendimiento.", "dimension": "Conducta ante Sustancias", "invertida": True},
     {"id": "p18", "texto": "Mientras cumpla con mis funciones, el consumo no es relevante.", "dimension": "Conducta ante Sustancias", "invertida": True},
+    # ======================================
+    # 4️⃣ PREVENCIÓN DE VIOLENCIA GENERAL (60%)
+    # ======================================
+
+    {"id": "p19", "texto": "Mantengo trato respetuoso incluso en situaciones de tensión.", "dimension": "Prevención de Violencia General", "invertida": False},
+    {"id": "p20", "texto": "Evito responder de manera agresiva ante provocaciones.", "dimension": "Prevención de Violencia General", "invertida": False},
+    {"id": "p21", "texto": "Prioritizo la solución pacífica de conflictos.", "dimension": "Prevención de Violencia General", "invertida": False},
+    {"id": "p22", "texto": "En algunos casos, la agresividad es necesaria para mantener control.", "dimension": "Prevención de Violencia General", "invertida": True},
+    {"id": "p23", "texto": "Si alguien provoca, es normal responder de forma contundente.", "dimension": "Prevención de Violencia General", "invertida": True},
+    {"id": "p24", "texto": "Algunas confrontaciones físicas pueden justificarse fácilmente.", "dimension": "Prevención de Violencia General", "invertida": True},
 
 ]
 
