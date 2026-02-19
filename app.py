@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import random
 
 app = Flask(__name__)
 
@@ -233,7 +234,11 @@ def evaluacion():
             dictamen=dictamen
         )
 
-    return render_template("test.html", preguntas=preguntas)
+preguntas_aleatorias = preguntas.copy()
+random.shuffle(preguntas_aleatorias)
+
+return render_template("test.html", preguntas=preguntas_aleatorias)
+
 
 
 if __name__ == "__main__":
