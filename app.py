@@ -129,6 +129,16 @@ preguntas = [
     {"id": "p70", "texto": "Cambios pequeños en el entorno me alteran más de lo normal.", "dimension": "Estabilidad Emocional", "invertida": True},
     {"id": "p71", "texto": "Me irrito con facilidad durante el servicio.", "dimension": "Estabilidad Emocional", "invertida": True},
     {"id": "p72", "texto": "Mis emociones influyen demasiado en mi rendimiento.", "dimension": "Estabilidad Emocional", "invertida": True},
+    # ======================================
+    # 1️⃣3️⃣ TRABAJO EN EQUIPO (45%)
+    # ======================================
+
+    {"id": "p73", "texto": "Coopero activamente con mis compañeros durante el servicio.", "dimension": "Trabajo en Equipo", "invertida": False},
+    {"id": "p74", "texto": "Comparto información relevante con el equipo de manera oportuna.", "dimension": "Trabajo en Equipo", "invertida": False},
+    {"id": "p75", "texto": "Apoyo a mis compañeros cuando enfrentan dificultades operativas.", "dimension": "Trabajo en Equipo", "invertida": False},
+    {"id": "p76", "texto": "Prefiero trabajar solo y evitar involucrarme con otros.", "dimension": "Trabajo en Equipo", "invertida": True},
+    {"id": "p77", "texto": "No es mi responsabilidad apoyar a compañeros con problemas.", "dimension": "Trabajo en Equipo", "invertida": True},
+    {"id": "p78", "texto": "Si un compañero comete un error, no es asunto mío.", "dimension": "Trabajo en Equipo", "invertida": True},
 
 ]
 
