@@ -11,9 +11,35 @@
         {% for pregunta in preguntas %}
             <p>{{ loop.index }}. {{ pregunta.texto }}</p>
 
-            {% for i in range(1,6) %}
-                <input type="radio" name="{{ pregunta.id }}" value="{{ i }}" required> {{ i }}
-            {% endfor %}
+            <div class="opciones">
+
+    <label>
+        <input type="radio" name="{{ pregunta.id }}" value="1" required>
+        1 - Totalmente en desacuerdo
+    </label><br>
+
+    <label>
+        <input type="radio" name="{{ pregunta.id }}" value="2">
+        2 - En desacuerdo
+    </label><br>
+
+    <label>
+        <input type="radio" name="{{ pregunta.id }}" value="3">
+        3 - Ni de acuerdo ni en desacuerdo
+    </label><br>
+
+    <label>
+        <input type="radio" name="{{ pregunta.id }}" value="4">
+        4 - De acuerdo
+    </label><br>
+
+    <label>
+        <input type="radio" name="{{ pregunta.id }}" value="5">
+        5 - Totalmente de acuerdo
+    </label>
+
+</div>
+
 
             <br><br>
         {% endfor %}
