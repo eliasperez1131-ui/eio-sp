@@ -2,52 +2,29 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-preguntas = []
+# ==========================================
+# EIO-SP v15
+# 90 Reactivos (Construcción en bloques)
+# ==========================================
 
-dimensiones = [
-    "Honestidad Operativa",
-    "Conducta ante Sobornos",
-    "Conducta ante Sustancias",
-    "Prevención de Violencia General",
-    "Violencia Sexual y Conducta Inapropiada",
-    "Seguridad Laboral",
-    "Uso Proporcional de la Fuerza",
-    "Responsabilidad Proactiva",
-    "Apego a Normas",
-    "Control de Impulsos",
-    "Tolerancia a la Frustración",
-    "Estabilidad Emocional",
-    "Trabajo en Equipo",
-    "Riesgo Conductual",
-    "Seguridad de la Información"
+preguntas = [
+
+    # ======================================
+    # 1️⃣ HONESTIDAD OPERATIVA (60%)
+    # ======================================
+
+    {"id": "p1", "texto": "Cumplo las normas aunque nadie me esté supervisando.", "dimension": "Honestidad Operativa", "invertida": False},
+    {"id": "p2", "texto": "Reporto irregularidades aunque pueda generarme inconvenientes.", "dimension": "Honestidad Operativa", "invertida": False},
+    {"id": "p3", "texto": "Mantengo integridad incluso bajo presión.", "dimension": "Honestidad Operativa", "invertida": False},
+    {"id": "p4", "texto": "Si nadie se da cuenta, algunas faltas pueden justificarse.", "dimension": "Honestidad Operativa", "invertida": True},
+    {"id": "p5", "texto": "Modificar un reporte puede ser aceptable en ciertas circunstancias.", "dimension": "Honestidad Operativa", "invertida": True},
+    {"id": "p6", "texto": "Pequeñas omisiones no afectan realmente a la empresa.", "dimension": "Honestidad Operativa", "invertida": True},
+
 ]
-
-contador = 1
-
-for dim in dimensiones:
-    for i in range(3):
-        preguntas.append({
-            "id": f"p{contador}",
-            "texto": f"{dim} - Reactivo positivo {i+1}",
-            "dimension": dim,
-            "invertida": False
-        })
-        contador += 1
-
-    for i in range(3):
-        preguntas.append({
-            "id": f"p{contador}",
-            "texto": f"{dim} - Reactivo invertido {i+1}",
-            "dimension": dim,
-            "invertida": True
-        })
-        contador += 1
-
 
 @app.route("/")
 def home():
-    return "EIO-SP Plataforma Activa v15 - 90 Reactivos"
-
+    return "EIO-SP Plataforma Activa v15 - En Construcción"
 
 @app.route("/evaluacion", methods=["GET", "POST"])
 def evaluacion():
@@ -82,25 +59,11 @@ def evaluacion():
 
         for dimension, puntaje in resultados.items():
 
-            porcentaje = round((puntaje / 30) * 100)
+            porcentaje = round((puntaje / (6*5)) * 100)
             dimensiones_resultado[dimension] = porcentaje
 
-            if dimension in [
-                "Honestidad Operativa",
-                "Conducta ante Sobornos",
-                "Conducta ante Sustancias",
-                "Prevención de Violencia General",
-                "Violencia Sexual y Conducta Inapropiada"
-            ]:
+            if dimension == "Honestidad Operativa":
                 umbral = 60
-
-            elif dimension in [
-                "Seguridad Laboral",
-                "Uso Proporcional de la Fuerza",
-                "Responsabilidad Proactiva"
-            ]:
-                umbral = 50
-
             else:
                 umbral = 45
 
@@ -108,21 +71,13 @@ def evaluacion():
                 dim_critica = True
 
         if dim_critica:
-            clasificacion = "No Recomendable (Dimensión Crítica)"
-            color = "red"
-            dictamen = "NO APTO"
-        elif igio >= 80:
-            clasificacion = "Recomendable"
-            color = "green"
-            dictamen = "APTO"
-        elif igio >= 65:
-            clasificacion = "Riesgo Medio"
-            color = "orange"
-            dictamen = "APTO CON RESERVA"
-        else:
             clasificacion = "No Recomendable"
             color = "red"
             dictamen = "NO APTO"
+        else:
+            clasificacion = "Recomendable"
+            color = "green"
+            dictamen = "APTO"
 
         return render_template(
             "resultado.html",
