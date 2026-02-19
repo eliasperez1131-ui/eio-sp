@@ -119,6 +119,16 @@ preguntas = [
     {"id": "p64", "texto": "Me desmotivo fácilmente cuando algo falla.", "dimension": "Tolerancia a la Frustración", "invertida": True},
     {"id": "p65", "texto": "Cuando cometo errores, me cuesta recuperarme.", "dimension": "Tolerancia a la Frustración", "invertida": True},
     {"id": "p66", "texto": "Si el turno es complicado, pierdo interés en el servicio.", "dimension": "Tolerancia a la Frustración", "invertida": True},
+    # ======================================
+    # 1️⃣2️⃣ ESTABILIDAD EMOCIONAL (45%)
+    # ======================================
+
+    {"id": "p67", "texto": "Mantengo estabilidad emocional en situaciones críticas.", "dimension": "Estabilidad Emocional", "invertida": False},
+    {"id": "p68", "texto": "Mi estado de ánimo no afecta mi desempeño laboral.", "dimension": "Estabilidad Emocional", "invertida": False},
+    {"id": "p69", "texto": "Puedo trabajar bajo presión sin alterarme excesivamente.", "dimension": "Estabilidad Emocional", "invertida": False},
+    {"id": "p70", "texto": "Cambios pequeños en el entorno me alteran más de lo normal.", "dimension": "Estabilidad Emocional", "invertida": True},
+    {"id": "p71", "texto": "Me irrito con facilidad durante el servicio.", "dimension": "Estabilidad Emocional", "invertida": True},
+    {"id": "p72", "texto": "Mis emociones influyen demasiado en mi rendimiento.", "dimension": "Estabilidad Emocional", "invertida": True},
 
 ]
 
