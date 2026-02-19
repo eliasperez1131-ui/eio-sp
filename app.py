@@ -5,12 +5,20 @@ import random
 
 app = Flask(__name__)
 
-uri = os.environ.get("DATABASE_URL")
+pg_host = os.getenv("PGHOST")
+pg_port = os.getenv("PGPORT")
+pg_db = os.getenv("PGDATABASE")
+pg_user = os.getenv("PGUSER")
+pg_password = os.getenv("PGPASSWORD")
 
-if uri and uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+if not all([pg_host, pg_port, pg_db, pg_user, pg_password]):
+    raise RuntimeError("Variables de PostgreSQL no configuradas correctamente.")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
+database_uri = f"postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_db}"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_uri
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
