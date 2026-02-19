@@ -69,6 +69,16 @@ preguntas = [
     {"id": "p34", "texto": "Si el riesgo parece bajo, no siempre es necesario seguir todos los protocolos.", "dimension": "Seguridad Laboral", "invertida": True},
     {"id": "p35", "texto": "El equipo de protección a veces estorba y puede omitirse.", "dimension": "Seguridad Laboral", "invertida": True},
     {"id": "p36", "texto": "Los accidentes menores no requieren reporte formal.", "dimension": "Seguridad Laboral", "invertida": True},
+    # ======================================
+    # 7️⃣ USO PROPORCIONAL DE LA FUERZA (50%)
+    # ======================================
+
+    {"id": "p37", "texto": "Evalúo la situación antes de intervenir físicamente.", "dimension": "Uso Proporcional de la Fuerza", "invertida": False},
+    {"id": "p38", "texto": "Utilizo la fuerza solo cuando es estrictamente necesaria.", "dimension": "Uso Proporcional de la Fuerza", "invertida": False},
+    {"id": "p39", "texto": "Prioritizo el diálogo antes de recurrir a medidas físicas.", "dimension": "Uso Proporcional de la Fuerza", "invertida": False},
+    {"id": "p40", "texto": "En situaciones tensas es mejor actuar físicamente sin evaluar demasiado.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
+    {"id": "p41", "texto": "Mostrar autoridad física evita futuros conflictos.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
+    {"id": "p42", "texto": "Una respuesta contundente siempre es la mejor forma de control.", "dimension": "Uso Proporcional de la Fuerza", "invertida": True},
 
 ]
 
